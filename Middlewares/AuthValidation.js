@@ -1,6 +1,4 @@
 const Joi = require('joi');
-const bcrypt = require('bcryptjs');
-
 
 const signupValidation = (req, res, next) => {
     const schema = Joi.object({
