@@ -11,7 +11,7 @@ const port = 8080;
 const cookieParser = require("cookie-parser");
 const AuthRouter = require("./Routes/AuthRouter");
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 
 mongoose
   .connect(MONGO_URL, {
@@ -36,7 +36,10 @@ app.use(
 
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+  res.send("server is working fine");
+});
 app.use("/", Holdingsroutes);
 app.use("/", Positionsroutes);
-app.use("/",  OrderRoute);
-app.use('/', AuthRouter);
+app.use("/", OrderRoute);
+app.use("/", AuthRouter);
